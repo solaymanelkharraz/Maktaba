@@ -59,3 +59,10 @@
 * **Error:** `SQLSTATE[HY000]: General error: 1005 (errno: 150 "Foreign key constraint is incorrectly formed")` during deployment to AlwaysData.
 * **Root Cause:** The `emprunts` migration was executing before the `membres` migration due to the file timestamp generation order, causing the foreign key constraint to fail.
 * **Resolution:** Renamed the `create_emprunts_table` migration file to a later timestamp to ensure parent tables (`livres` and `membres`) are strictly created before the associative table (`emprunts`).
+
+
+## Day 3: Environment Linkage & Final Deployment
+* **Action:** Whitelisted the production Vercel frontend URL (`https://maktaba-three.vercel.app`) within the Laravel `config/cors.php` to permit live cross-origin resource sharing.
+* **Action:** Updated React Axios instances to target the live Render REST API (`https://maktaba-5sr1.onrender.com/api`).
+* **Action:** Configured production environment variables (`APP_URL`) on the Render dashboard.
+* **Reasoning:** Connecting the remote UI engine directly to the containerized API completes the cloud infrastructure pipeline, ensuring full functionality of the live environment for the judges.

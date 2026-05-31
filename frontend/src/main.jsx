@@ -8,7 +8,7 @@ import './index.css';
 import App from './App.jsx';
 
 // Configure Axios Default Base URL for Laravel REST API Backend
-axios.defaults.baseURL = 'https://maktaba-5sr1.onrender.com//api';
+axios.defaults.baseURL = 'https://maktaba-5sr1.onrender.com/api';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 createRoot(document.getElementById('root')).render(
