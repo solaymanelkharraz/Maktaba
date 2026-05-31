@@ -135,4 +135,122 @@
         </form>
     </div>
 </div>
+
+<!-- Tom Select Integration -->
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
+<style>
+    /* Hide native custom arrow when Tom Select is active */
+    .ts-wrapper + div {
+        display: none !important;
+    }
+
+    /* Tom Select Control (Input) Styling */
+    .ts-wrapper.single .ts-control {
+        background-image: none !important;
+    }
+
+    .ts-control {
+        border-radius: 0.75rem !important; /* rounded-xl */
+        border: 1px solid #e2e8f0 !important; /* border-slate-200 */
+        padding: 0.875rem 1rem !important; /* py-3.5 px-4 */
+        background-color: #ffffff !important;
+        color: #1e293b !important; /* text-slate-800 */
+        font-size: 0.875rem !important;
+        line-height: 1.25rem !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+        transition: all 0.2s ease-in-out !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Custom caret down SVG indicator for Tom Select */
+    .ts-wrapper.single .ts-control::after {
+        content: "" !important;
+        display: block !important;
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        position: absolute !important;
+        right: 1rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='%2394a3b8' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E") !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        border: none !important;
+    }
+
+    .ts-wrapper.single.open .ts-control::after {
+        transform: translateY(-50%) rotate(180deg) !important;
+    }
+
+    /* Error state border styling */
+    .ts-wrapper.border-rose-400 .ts-control {
+        border-color: #f87171 !important; /* border-rose-400 */
+    }
+
+    /* Focus Ring & Active States */
+    .ts-wrapper.focus .ts-control {
+        border-color: #3b82f6 !important; /* border-blue-500 */
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important; /* focus:ring-4 focus:ring-blue-500/10 */
+        outline: none !important;
+    }
+
+    /* Tom Select Dropdown Container */
+    .ts-dropdown {
+        border-radius: 0.75rem !important; /* rounded-xl */
+        border: 1px solid #e2e8f0 !important; /* border-slate-200 */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important; /* shadow-lg */
+        margin-top: 0.5rem !important;
+        background-color: #ffffff !important;
+        z-index: 50 !important;
+        overflow: hidden !important;
+        padding: 0.25rem !important;
+    }
+
+    /* Dropdown Options */
+    .ts-dropdown .option {
+        padding: 0.625rem 0.875rem !important;
+        border-radius: 0.5rem !important; /* rounded-lg */
+        font-size: 0.875rem !important;
+        color: #334155 !important; /* text-slate-700 */
+        cursor: pointer !important;
+        transition: background-color 0.15s ease, color 0.15s ease !important;
+    }
+
+    /* Option Active/Hover State */
+    .ts-dropdown .option:hover, 
+    .ts-dropdown .create:hover {
+        background-color: #f1f5f9 !important; /* bg-slate-100 */
+        color: #0f172a !important; /* text-slate-900 */
+    }
+
+    .ts-dropdown .active {
+        background-color: #2563eb !important; /* bg-blue-600 */
+        color: #ffffff !important;
+    }
+
+    .ts-dropdown .active:hover {
+        background-color: #1d4ed8 !important; /* bg-blue-700 */
+        color: #ffffff !important;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof TomSelect !== 'undefined') {
+            new TomSelect('#livre_id', {
+                create: false,
+                placeholder: 'Rechercher un livre...',
+            });
+
+            new TomSelect('#membre_id', {
+                create: false,
+                placeholder: 'Rechercher un membre...',
+            });
+        }
+    });
+</script>
 @endsection
