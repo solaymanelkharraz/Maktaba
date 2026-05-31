@@ -66,3 +66,8 @@
 * **Action:** Updated React Axios instances to target the live Render REST API (`https://maktaba-5sr1.onrender.com/api`).
 * **Action:** Configured production environment variables (`APP_URL`) on the Render dashboard.
 * **Reasoning:** Connecting the remote UI engine directly to the containerized API completes the cloud infrastructure pipeline, ensuring full functionality of the live environment for the judges.
+
+
+## Day 3: Security & SSL Termination Fix
+* **Action:** Configured Laravel's `AppServiceProvider` to strictly enforce the `https` scheme for all generated routes and form actions in the production environment.
+* **Reasoning:** Render acts as a reverse proxy, passing terminated SSL traffic to the container via HTTP. Forcing the HTTPS scheme prevents the browser from throwing "Mixed Content" or insecure form submission warnings when interacting with the Blade views.
