@@ -54,3 +54,8 @@
 * **Action:** Configured the Apache server inside the Docker container to dynamically bind to Render's injected `$PORT` environment variable to ensure seamless traffic routing.
 * **Action:** Prepared the remote AlwaysData MySQL database credentials to be injected into the production environment via Render's environment variable dashboard.
 * **Reasoning:** Providing a clear architectural map in the technical report demonstrates professional-grade project management. Containerizing the backend with Docker ensures exact environment consistency between local development and production, directly securing the 10 points allocated for "Déploiement en ligne".
+
+## Day 3: Bug Fix - Database Migration Order
+* **Error:** `SQLSTATE[HY000]: General error: 1005 (errno: 150 "Foreign key constraint is incorrectly formed")` during deployment to AlwaysData.
+* **Root Cause:** The `emprunts` migration was executing before the `membres` migration due to the file timestamp generation order, causing the foreign key constraint to fail.
+* **Resolution:** Renamed the `create_emprunts_table` migration file to a later timestamp to ensure parent tables (`livres` and `membres`) are strictly created before the associative table (`emprunts`).
