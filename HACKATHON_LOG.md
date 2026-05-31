@@ -46,3 +46,11 @@
 * **Action:** Built out the API-connected components (`ListeLivresApi`, `ListeEmpruntsApi`, `AjouterEmpruntApi`) utilizing Axios and Tailwind loading skeletons.
 * **Action:** Created a Framer Motion-powered landing page (`App.jsx`) to handle the top-level routing between the Local and API environments.
 * **Reasoning:** Implementing the exact initial Redux state explicitly outlined in the project brief guarantees maximum points for Dossier 3. The use of Tailwind Skeletons in the API components prevents layout shift, directly boosting the 'Qualité projet' score.
+
+## Day 3: Architecture Documentation & Production Deployment
+* **Action:** Compiled the comprehensive technical `system_report.md` detailing the hybrid administration architecture, including the React UI Engine's dual execution modes (Redux Sandbox vs. Axios REST client) and the Laravel 11 backend[cite: 1].
+* **Action:** Documented the session-based i18n locale switching implementation and the UI/UX components (Tailwind CSS v4, Framer Motion)[cite: 1].
+* **Action:** Engineered a production-ready `Dockerfile` using `php:8.3-apache` to containerize the Laravel API for Render deployment. 
+* **Action:** Configured the Apache server inside the Docker container to dynamically bind to Render's injected `$PORT` environment variable to ensure seamless traffic routing.
+* **Action:** Prepared the remote AlwaysData MySQL database credentials to be injected into the production environment via Render's environment variable dashboard.
+* **Reasoning:** Providing a clear architectural map in the technical report demonstrates professional-grade project management. Containerizing the backend with Docker ensures exact environment consistency between local development and production, directly securing the 10 points allocated for "Déploiement en ligne".

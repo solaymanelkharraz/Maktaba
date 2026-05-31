@@ -1,5 +1,5 @@
 # 1. Use the latest stable PHP version with Apache
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 # 2. Install system dependencies required by Laravel
 RUN apt-get update && apt-get install -y \
